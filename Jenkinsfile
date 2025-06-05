@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('git Checkout') {
             steps {
-                git branch:'SpringBoot_Full_Stack', url: 'https://github.com/Coding4Deep/Multi_App_Platform.git'
+                git branch:'SpringBoot_Full_Stack', url: 'https://github.com/Soul-of-steel/Multi_App_Platform.git'
             }
         }
         stage('build'){
@@ -31,7 +31,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'DockerHub', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                     script {
-                         sh 'docker build -t deepaksag/springboot-k8s:v1.0.0 .'
+                         sh 'docker build -t soulofsteel/springboot-k8s:v1.0.0 .'
                          sh "echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin"
                          sh 'docker images'
           
