@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('git Checkout') {
             steps {
-                git branch:'SpringBoot_Full_Stack', url: 'https://github.com/Soul-of-steel/Multi_App_Platform.git'
+                git branch:'anmolmalik711-patch-1', url: 'https://github.com/Soul-of-steel/Multi_App_Platform.git'
             }
         }
         stage('build'){
@@ -21,7 +21,7 @@ pipeline {
         }
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('SonarQube') {
+                withSonarQubeEnv('Mysonarqube') {
                         sh ' ./mvnw sonar:sonar'  // mvn sonar:sonar
                         
                 }
