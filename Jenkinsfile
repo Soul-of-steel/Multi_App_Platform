@@ -31,7 +31,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'Dockerhub', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                     script {
-                         sh 'docker build -t soulofsteel/springboot-k8s:v1.0.0 .'
+                         sh 'docker build -t soulofsteel/oct-batch:v1.0.0 .'
                          sh "echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin"
                          sh 'docker images'
           
